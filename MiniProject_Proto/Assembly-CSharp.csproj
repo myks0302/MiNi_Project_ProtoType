@@ -150,6 +150,7 @@
     <Compile Include="Assets\Player\Scripts\UI\CoolDownUI.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\Player\Scripts\Weapon\Bayonet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
