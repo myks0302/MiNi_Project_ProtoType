@@ -106,6 +106,7 @@
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\HM\2. Scripts\Magic_Script\Magic_Monster_CTL.cs" />
     <Compile Include="Assets\TAL 1\Scripts\Weapon\Granade.cs" />
+    <Compile Include="Assets\HM\2. Scripts\Boss\Boss.cs" />
     <Compile Include="Assets\TAL 1\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\HM\2. Scripts\HM_GostScript\HM_Gost_Move.cs" />
     <Compile Include="Assets\HM\2. Scripts\Gost_Script\Gost_Move.cs" />
@@ -115,7 +116,7 @@
     <Compile Include="Assets\TAL 1\Scripts\UI\CoolDownUI.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
-    <Compile Include="Assets\HM\2. Scripts\Boss\Boss.cs" />
+    <Compile Include="Assets\HM\2. Scripts\Boss\Boos_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
