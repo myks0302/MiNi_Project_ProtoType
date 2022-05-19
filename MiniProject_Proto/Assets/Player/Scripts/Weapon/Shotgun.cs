@@ -5,21 +5,13 @@ using UnityEngine;
 public class Shotgun : MonoBehaviour
 {
 	public Transform[] shotGunMuzzle; //여러 개의 탄환 생성기 
-	public Projectile projectile; 
-	
+	public Projectile projectile;
+
 	public float msBetweenShots = 100;
 	public float muzzleVelocity = 50; //통상탄 보다는 빠르게
 
 	float nextShotTime;
-
-<<<<<<< Updated upstream
-    void sgShoot()
-    {
-        
-    }
-
-=======
-	public void SgShot() 
+	public void SgShot()
 	{
 		if (Time.time > nextShotTime)
 		{
@@ -31,5 +23,5 @@ public class Shotgun : MonoBehaviour
 			}
 		}
 	}
->>>>>>> Stashed changes
+
 }

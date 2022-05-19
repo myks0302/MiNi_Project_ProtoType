@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869561b1d0d7d154a93ecb10d6ad8c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMain: 3
+  selectedMain: 0
   muzzle: {fileID: 7958600656590962211}
   projectile: {fileID: 7192002522910841701, guid: 54767bf88f60c1a43af33572c4c27f9b, type: 3}
   snipe: {fileID: 6033409990274664725, guid: 594011bef7dba424c9c3893bf853e6a1, type: 3}
@@ -58,6 +58,7 @@ MonoBehaviour:
   subStock: 0
   maxStock: 3
   chargeTime: 5
+  bayonet: {fileID: 5223137104942577725, guid: e0ac802920c71a74dbb513b84e4d5f7b, type: 3}
   shotgun: {fileID: 6330341995761519136, guid: 9dd8dc48db49fa042beff452a2c82848, type: 3}
   granade: {fileID: 1411710829353533484, guid: f847dc34a555d62429708e7735f07aec, type: 3}
   range: 10

@@ -67,12 +67,10 @@ public class Gun : MonoBehaviour
 
 
     #region 부무장 변수
-<<<<<<< Updated upstream
+
     public enum SelectedSub { BL, SG, GL, RL }; //보조무장 종류
-=======
-    public enum SelectedSub { SG, GL, RL }; //보조무장 종류
->>>>>>> Stashed changes
-    public SelectedSub selectedSub; //현재 자신이 사용하는 
+
+    public SelectedSub selectedSub; //현재 자신이 사용하는 보조무장
 
     private bool can_Sub = true; //발사 가능 여부
     public float subDelay = 3.0f; //1번 발사하고 딜레이
@@ -80,6 +78,10 @@ public class Gun : MonoBehaviour
     public int subStock; //현재 스톡수
     public int maxStock = 3; //최대 스톡수
     public float chargeTime = 5.0f; //스톡 충전 시간
+
+    #region 산탄총
+    public Bayonet bayonet;
+    #endregion
 
     #region 산탄총
     public Shotgun shotgun;
@@ -107,7 +109,13 @@ public class Gun : MonoBehaviour
             subStock--;
 
             //기능 수행
-            if (selectedSub == SelectedSub.SG) 
+
+            if (selectedSub == SelectedSub.BL) 
+            {
+                Bayonet newBayonet = Instantiate(bayonet, muzzle.position, muzzle.rotation);
+                newBayonet.pushBack();
+            }
+            else if (selectedSub == SelectedSub.SG)
             {
                 Shotgun newShotgun = Instantiate(shotgun, muzzle.position, muzzle.rotation);
                 newShotgun.SgShot();
