@@ -58,6 +58,7 @@ MonoBehaviour:
   subStock: 0
   maxStock: 3
   chargeTime: 5
+  shotgun: {fileID: 6330341995761519136, guid: 9dd8dc48db49fa042beff452a2c82848, type: 3}
   granade: {fileID: 1411710829353533484, guid: f847dc34a555d62429708e7735f07aec, type: 3}
   range: 10
   missile: {fileID: 4396832891826865006, guid: fdb87a3a4b8cfda4d89301fa652dcc69, type: 3}

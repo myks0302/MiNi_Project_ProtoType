@@ -67,7 +67,11 @@ public class Gun : MonoBehaviour
 
 
     #region 부무장 변수
+<<<<<<< Updated upstream
     public enum SelectedSub { BL, SG, GL, RL }; //보조무장 종류
+=======
+    public enum SelectedSub { SG, GL, RL }; //보조무장 종류
+>>>>>>> Stashed changes
     public SelectedSub selectedSub; //현재 자신이 사용하는 
 
     private bool can_Sub = true; //발사 가능 여부
@@ -77,6 +81,9 @@ public class Gun : MonoBehaviour
     public int maxStock = 3; //최대 스톡수
     public float chargeTime = 5.0f; //스톡 충전 시간
 
+    #region 산탄총
+    public Shotgun shotgun;
+    #endregion
 
     #region 수류탄
     public Granade granade;
@@ -87,6 +94,7 @@ public class Gun : MonoBehaviour
     public Missile missile;
     public float disMiss = 30f; //미사일 유효사거리
     #endregion
+
 
     #endregion
     #region 부무장 메소드
@@ -99,7 +107,12 @@ public class Gun : MonoBehaviour
             subStock--;
 
             //기능 수행
-            if (selectedSub == SelectedSub.GL) //유탄 선택시
+            if (selectedSub == SelectedSub.SG) 
+            {
+                Shotgun newShotgun = Instantiate(shotgun, muzzle.position, muzzle.rotation);
+                newShotgun.SgShot();
+            }
+            else if (selectedSub == SelectedSub.GL) //유탄 선택시
             {
                 Granade newGranade = Instantiate(granade, muzzle.position, muzzle.rotation);
                 newGranade.GetComponent<Rigidbody>().AddForce(muzzle.forward * range, ForceMode.Impulse);
