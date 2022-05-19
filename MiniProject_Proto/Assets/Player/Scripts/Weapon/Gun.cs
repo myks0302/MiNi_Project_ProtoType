@@ -67,7 +67,7 @@ public class Gun : MonoBehaviour
 
 
     #region 부무장 변수
-    public enum SelectedSub { GL, RL }; //보조무장 종류
+    public enum SelectedSub { BL, SG, GL, RL }; //보조무장 종류
     public SelectedSub selectedSub; //현재 자신이 사용하는 
 
     private bool can_Sub = true; //발사 가능 여부
