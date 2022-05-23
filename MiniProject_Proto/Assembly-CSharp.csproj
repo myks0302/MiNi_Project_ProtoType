@@ -128,6 +128,7 @@
     <Compile Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectDemo.cs" />
     <Compile Include="Assets\Player\Scripts\Weapon\Missile.cs" />
     <Compile Include="Assets\Player\Scripts\UI\SteminaUI.cs" />
+    <Compile Include="Assets\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Player\Scripts\UI\WeaponUI.cs" />
     <Compile Include="Assets\HM\2. Scripts\Magic_Script\MagicMon_Spawn.cs" />
@@ -155,7 +156,6 @@
     <Compile Include="Assets\Player\Scripts\UI\CoolDownUI.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
-    <Compile Include="Assets\Travis Game Assets\Hit Impact Effects\Demo Scene\Scripts\HitImpactEffectsPreview.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />
