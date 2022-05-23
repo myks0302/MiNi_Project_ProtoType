@@ -398,6 +398,7 @@
 "Assets/Player/Scripts/Player/Player.cs"
 "Assets/Player/Scripts/Player/PlayerController.cs"
 "Assets/Player/Scripts/UI/CoolDownUI.cs"
+"Assets/Player/Scripts/UI/SelectGearUI.cs"
 "Assets/Player/Scripts/UI/SteminaUI.cs"
 "Assets/Player/Scripts/UI/WeaponUI.cs"
 "Assets/Player/Scripts/Weapon/Bayonet.cs"

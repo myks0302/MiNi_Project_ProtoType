@@ -13,29 +13,25 @@ public class SelectGearUI : MonoBehaviour
         SelectGearUI.instance = this;
     } //단독
 
-    public GameObject gun;
-    public GameObject player;
-    //외부 입력이 가능하도록 클래스 연동
-
     #region 주무기 선택
     public void selectMainHG() 
     {
-        gun.GetComponent<Gun>().selectedMain = Gun.SelectedMain.HG;
+        Gun.selectedMain = Gun.SelectedMain.HG;
     }
 
     public void selectMainSMG()
     {
-        gun.GetComponent<Gun>().selectedMain = Gun.SelectedMain.SMG;
+        Gun.selectedMain = Gun.SelectedMain.SMG;
     }
 
     public void selectMainAR()
     {
-        gun.GetComponent<Gun>().selectedMain = Gun.SelectedMain.AR;
+        Gun.selectedMain = Gun.SelectedMain.AR;
     }
 
     public void selectMainSR()
     {
-        gun.GetComponent<Gun>().selectedMain = Gun.SelectedMain.SR;
+        Gun.selectedMain = Gun.SelectedMain.SR;
     }
 
     #endregion
@@ -43,22 +39,22 @@ public class SelectGearUI : MonoBehaviour
     #region 부무기 선택
     public void selectSubBL()
     {
-        gun.GetComponent<Gun>().selectedSub = Gun.SelectedSub.BL;
+        Gun.selectedSub = Gun.SelectedSub.BL;
     }
 
     public void selectSubSG()
     {
-        gun.GetComponent<Gun>().selectedSub = Gun.SelectedSub.SG;
+        Gun.selectedSub = Gun.SelectedSub.SG;
     }
 
     public void selectSubGL()
     {
-        gun.GetComponent<Gun>().selectedSub = Gun.SelectedSub.GL;
+        Gun.selectedSub = Gun.SelectedSub.GL;
     }
 
     public void selectSubRL()
     {
-        gun.GetComponent<Gun>().selectedSub = Gun.SelectedSub.RL;
+        Gun.selectedSub = Gun.SelectedSub.RL;
     }
 
     #endregion
@@ -67,17 +63,17 @@ public class SelectGearUI : MonoBehaviour
 
     public void selectDodgeSPR()
     {
-        player.GetComponent<Player>().selectDodge = Player.SelectDodge.SPR;
+        Player.selectDodge = Player.SelectDodge.SPR;
     }
 
     public void selectDodgeSLD()
     {
-        player.GetComponent<Player>().selectDodge = Player.SelectDodge.SLD;
+        Player.selectDodge = Player.SelectDodge.SLD;
     }
 
     public void selectDodgeBLK()
     {
-        player.GetComponent<Player>().selectDodge = Player.SelectDodge.BLK;
+        Player.selectDodge = Player.SelectDodge.BLK;
     }
 
     #endregion
@@ -85,26 +81,26 @@ public class SelectGearUI : MonoBehaviour
     #region 보조장비 선택
     public void selectSptAtk() //공격 부스트
     {
-        gun.GetComponent<Gun>().selectSpt = Gun.SelectSpt.ATK;
-        player.GetComponent<Player>().moveSpt = Player.MoveSpt.NON;
+        Gun.selectSpt = Gun.SelectSpt.ATK;
+        Player.moveSpt = Player.MoveSpt.NON;
     }
 
     public void selectSptMag() //총탄량 부스트
     {
-        gun.GetComponent<Gun>().selectSpt = Gun.SelectSpt.MAG;
-        player.GetComponent<Player>().moveSpt = Player.MoveSpt.NON;
+        Gun.selectSpt = Gun.SelectSpt.MAG;
+        Player.moveSpt = Player.MoveSpt.NON;
     }
 
     public void selectSptRel() //재장전 부스트
     {
-        gun.GetComponent<Gun>().selectSpt = Gun.SelectSpt.REL;
-        player.GetComponent<Player>().moveSpt = Player.MoveSpt.NON;
+        Gun.selectSpt = Gun.SelectSpt.REL;
+        Player.moveSpt = Player.MoveSpt.NON;
     }
 
     public void selectSptSpd() //이동 부스트
     {
-        gun.GetComponent<Gun>().selectSpt = Gun.SelectSpt.NON;
-        player.GetComponent<Player>().moveSpt = Player.MoveSpt.SPD;
+        Gun.selectSpt = Gun.SelectSpt.NON;
+        Player.moveSpt = Player.MoveSpt.SPD;
     }
     #endregion
 
@@ -121,4 +117,8 @@ public class SelectGearUI : MonoBehaviour
         //게임화면으로 이동하는 메소드
     }
     #endregion
+
+    private void Start()
+    {
+    }
 }

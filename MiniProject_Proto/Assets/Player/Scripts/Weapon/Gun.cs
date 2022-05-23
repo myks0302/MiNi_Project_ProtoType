@@ -5,7 +5,7 @@ public class Gun : MonoBehaviour
 {
     #region 주무장 변수
     public enum SelectedMain { HG, SMG, AR, SR }; //주 무장 종류
-    public SelectedMain selectedMain; //현재 자신이 사용하는 
+    public static SelectedMain selectedMain; //현재 자신이 사용하는 
 
     public Transform muzzle; //발사 위치
     public Projectile projectile; //총알
@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
 
     #endregion
     #region 주무장 메소드
-    public void Shoot()
+    public void Shoot() //사격
     {
         if (!isreload && Time.time > nextShotTime && leftBullet > 0)
         {
@@ -46,7 +46,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public void Reload() //재장전
     {
 
         if (!isreload && leftBullet != maxBullet)
@@ -54,7 +54,7 @@ public class Gun : MonoBehaviour
             StartCoroutine(ReloadMove());
         }
     }
-    IEnumerator ReloadMove()
+    IEnumerator ReloadMove() //재장전 매커니즘;
     {
 
         isreload = true;
@@ -70,7 +70,7 @@ public class Gun : MonoBehaviour
 
     public enum SelectedSub { BL, SG, GL, RL }; //보조무장 종류
 
-    public SelectedSub selectedSub; //현재 자신이 사용하는 보조무장
+    public static SelectedSub selectedSub; //현재 자신이 사용하는 보조무장
 
     private bool can_Sub = true; //발사 가능 여부
     public float subDelay = 3.0f; //1번 발사하고 딜레이
@@ -100,7 +100,7 @@ public class Gun : MonoBehaviour
 
     #endregion
     #region 부무장 메소드
-
+   
     public void SubShoot() //부 무장 발사
     {
         if (subStock > 0 && can_Sub == true) //여유 스톡이 있을때만 사용가능
@@ -147,11 +147,11 @@ public class Gun : MonoBehaviour
 
     #region 무기 보조
     public enum SelectSpt { NON, ATK, MAG, REL };
-    public SelectSpt selectSpt;
+    public static SelectSpt selectSpt;
     #endregion
 
     public void Start()
-    {
+    { 
         switch (selectedMain)
         {
             case SelectedMain.HG:

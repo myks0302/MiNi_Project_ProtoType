@@ -111,13 +111,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Player\Scripts\Weapon\Shotgun.cs" />
     <Compile Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Script\CameraTarget.cs" />
-    <Compile Include="Assets\Player\Scripts\LivingEntity.cs" />
+    <Compile Include="Assets\Player\Scripts\etc\LivingEntity.cs" />
     <Compile Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Script\EffectController.cs" />
     <Compile Include="Assets\HM\2. Scripts\Gost_Script\Gost_Spawn.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\HM\2. Scripts\Gost_Script\Gost_Controller.cs" />
+    <Compile Include="Assets\Player\Scripts\UI\SelectGearUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
-    <Compile Include="Assets\Player\Scripts\IDamageable.cs" />
+    <Compile Include="Assets\Player\Scripts\etc\IDamageable.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Player\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\HM\2. Scripts\Magic_Script\Monster_Magic.cs" />
@@ -144,13 +145,16 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\HM\2. Scripts\Gost_Script\Gost_Move.cs" />
     <Compile Include="Assets\HM\2. Scripts\HM_MagicMonScript\HM_MagicMon_CTL_IP.cs" />
-    <Compile Include="Assets\Player\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Player\Scripts\etc\Enemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Player\Scripts\UI\CoolDownUI.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\HM\5. Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\Player\Scripts\UI\GameManager.cs" />
+    <Compile Include="Assets\Player\Scripts\UI\TitleUI.cs" />
+    <Compile Include="Assets\Player\Scripts\etc\PlayerCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HM\5. Assets\Particlecollection_Free samples\Plugins\Effect\Shader\Toon Blended Premmultiply.shader" />

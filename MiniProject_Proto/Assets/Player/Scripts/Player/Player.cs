@@ -18,7 +18,7 @@ public class Player : LivingEntity
     #region 특수 기동
     //특수 기동 형태 선택
     public enum SelectDodge { SPR, SLD, BLK };
-    public SelectDodge selectDodge;
+    public static SelectDodge selectDodge;
 
     //순간 이동
     public float blinkDis = 10f; //순간 이동 거리
@@ -40,7 +40,7 @@ public class Player : LivingEntity
 
     #region 이동 서포트
     public enum MoveSpt { NON, SPD };
-    public MoveSpt moveSpt;
+    public static MoveSpt moveSpt;
     #endregion
 
     // Start is called before the first frame update
@@ -54,6 +54,8 @@ public class Player : LivingEntity
         stamina = staminaMax; //최대 스테미나 충전
         player = GetComponent<Rigidbody>(); //플레이어 몸 가져오기
 
+        Vector3 moveInput = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));//입력
+
         if (moveSpt == MoveSpt.SPD) //가속기 선택시 기본 이동, 특수 기동 1.2배
         {
             normalspeed = moveSpeed * 1.2f;
@@ -61,10 +63,21 @@ public class Player : LivingEntity
             slidedis *= 1.2f;
             blinkDis *= 1.2f;
         }
-        else if (moveSpt == MoveSpt.NON) 
+        else if (moveSpt == MoveSpt.NON)
         {
             normalspeed = moveSpeed;
         }
+
+        switch (selectDodge)
+        {
+            case SelectDodge.SPR:
+                break;
+            case SelectDodge.SLD:
+                break;
+            case SelectDodge.BLK:
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -97,14 +110,14 @@ public class Player : LivingEntity
             gunController.SubShoot();
         }
 
-        if (Input.GetKeyDown(KeyCode.R)) 
+        if (Input.GetKeyDown(KeyCode.R))
         {
             gunController.Reload();
         }
 
 
         //특수 기동
-        
+
         if (selectDodge == SelectDodge.SPR) //달리기 선택시
         {
             CoolDownUI.instance.coolDownUi.text = " ";
@@ -132,7 +145,7 @@ public class Player : LivingEntity
                     if (Input.GetKeyDown(KeyCode.Space) && can_Slide == true)
                     {
                         slideAct();
-                    } 
+                    }
                     break;
 
                 case SelectDodge.BLK: //순간이동 선택시
@@ -148,6 +161,7 @@ public class Player : LivingEntity
 
     }
     #region 순간이동
+
     private void blinkAct()
     {
         CoolDownUI.instance.COOLDOWN = blinkcooldown; //쿨타임 배정 공유
@@ -157,6 +171,11 @@ public class Player : LivingEntity
         Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
         transform.position += dir * blinkDis; //일정 위치 이동함(순간 이동)
+
+        if (dir == Vector3.zero)
+        {
+            transform.position += player.transform.forward * blinkDis; //키보드 입력이 없다면 마우스가 바라보는 방향으로 이동
+        }
 
         StartCoroutine(CoolDownBlink());
     }
@@ -171,6 +190,8 @@ public class Player : LivingEntity
     #endregion
 
     #region 달리기
+
+
     //달리기 구현
     private void sprint()
     {
@@ -195,6 +216,7 @@ public class Player : LivingEntity
 
     #region 슬라이딩
     //슬라이딩 구현
+
     private void slideAct()
     {
         CoolDownUI.instance.COOLDOWN = slidecooldown; //쿨타임 배정 공유
@@ -205,7 +227,7 @@ public class Player : LivingEntity
 
         player.AddForce(dir * slidedis, ForceMode.Impulse); //밀어내듯이 이동
 
-        if (dir == Vector3.zero) 
+        if (dir == Vector3.zero)
         {
             player.AddForce(player.transform.forward * slidedis, ForceMode.Impulse); //키보드 입력이 없다면 마우스가 바라보는 방향으로 이동
         }

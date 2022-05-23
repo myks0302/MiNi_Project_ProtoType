@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60f39432faca26a4784fd6aceb338980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 10
-  radius: 4
+  pushForce: 20
+  radius: 5
   damage: 2
