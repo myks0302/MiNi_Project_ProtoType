@@ -47,3 +47,4 @@ MonoBehaviour:
   pushForce: 20
   radius: 5
   damage: 2
+  slash: {fileID: 2955623459812423943, guid: c9838e91fc1b8274f85e4ce8d64d95f4, type: 3}
