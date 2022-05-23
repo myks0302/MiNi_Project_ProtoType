@@ -9,6 +9,8 @@ public class Bayonet : MonoBehaviour
 
     public float damage = 2f; //주는 피해량
 
+    public GameObject slash; //이펙트
+   
     public void pushBack()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius); //반경 내 적 체크
@@ -29,6 +31,7 @@ public class Bayonet : MonoBehaviour
             }
 
         }
+        Instantiate(slash, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
