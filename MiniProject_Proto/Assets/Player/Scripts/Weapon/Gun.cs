@@ -216,6 +216,7 @@ public class Gun : MonoBehaviour
     {
         //주 무기
         WeaponUI.instance.REMAINMAIN = leftBullet;
+        WeaponUI.instance.MAXMAIN = maxBullet;
         WeaponUI.instance.ISRELOAD = isreload;
 
         //보조 무기

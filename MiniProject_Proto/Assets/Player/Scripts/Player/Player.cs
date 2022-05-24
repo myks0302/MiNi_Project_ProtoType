@@ -30,7 +30,6 @@ public class Player : LivingEntity
     public float stamina; //스테미나(최대 달리기 유지 시간)
     public float staminaMax = 5f;
 
-
     //슬라이딩 구현
     public Rigidbody player; //슬라이딩 할 객체
     public float slidedis = 7f; //슬라이딩 시 이동하는 거리 
@@ -78,6 +77,18 @@ public class Player : LivingEntity
                 break;
         }
 
+        if (selectDodge == SelectDodge.SPR) //달리기 선택시
+        {
+            SteminaUI.instance.STEMINA = stamina;
+            SteminaUI.instance.MAXSTEMINA = staminaMax;
+
+            CoolDownUI.instance.coolDownUi.enabled = false;
+        }
+
+        if ((selectDodge == SelectDodge.SLD) || (selectDodge == SelectDodge.BLK))
+        {
+            SteminaUI.instance.SteminaGUI.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -120,7 +131,10 @@ public class Player : LivingEntity
 
         if (selectDodge == SelectDodge.SPR) //달리기 선택시
         {
-            CoolDownUI.instance.coolDownUi.text = " ";
+            SteminaUI.instance.STEMINA = stamina;
+            SteminaUI.instance.MAXSTEMINA = staminaMax;
+
+            CoolDownUI.instance.coolDownUi.enabled = false;
 
             if ((Input.GetKey(KeyCode.Space) && stamina > 0) && moveInput != Vector3.zero) //
             {
@@ -138,7 +152,8 @@ public class Player : LivingEntity
 
         if ((selectDodge == SelectDodge.SLD) || (selectDodge == SelectDodge.BLK))
         {
-            SteminaUI.instance.SteminaUi.text = " ";
+            SteminaUI.instance.SteminaGUI.enabled = false;
+            
             switch (selectDodge)
             {
                 case SelectDodge.SLD: //슬라이딩 선택시
@@ -205,7 +220,6 @@ public class Player : LivingEntity
     private void recoverStamina() //스테미너 
     {
         stamina += Time.deltaTime; //천천히 회복
-
 
         if (stamina > staminaMax)
         {

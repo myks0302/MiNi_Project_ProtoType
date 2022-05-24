@@ -13,16 +13,27 @@ public class WeaponUI : MonoBehaviour
 
     #region 주무장
     int remain_main; //주무장 잔여
+    int max_main; //주무기의 최대 장탄수
+    
     public Text mainUI; //주무장 잔탄 연동
     public bool isReload; //재장전 여부
     
+    public int MAXMAIN 
+    {
+        get { return max_main; }
+        set 
+        {
+            max_main = value;
+        }
+    }
+
     public int REMAINMAIN 
     {
         get { return remain_main; }
         set
         {
             remain_main = value;
-            mainUI.text = "주무기 장탄 수 - " + remain_main;
+            mainUI.text = remain_main + " / " + MAXMAIN;
         }
     }
     public bool ISRELOAD 
@@ -34,7 +45,7 @@ public class WeaponUI : MonoBehaviour
 
             if (isReload == true) 
             {
-                mainUI.text = "재 장전 중...";
+                mainUI.text = "Reloading...";
             }
         }
     }
@@ -53,15 +64,6 @@ public class WeaponUI : MonoBehaviour
     public Text SubCharge; //부무장 충전 연동
 
 
-    public int REMAINSUB
-    {
-        get { return remain_sub; }
-        set
-        {
-            remain_sub = value;
-            subUI.text = "부무장 장탄 수 - " + remain_sub;
-        }
-    }
 
 
     public int SUBMAX //부 무장 최대 스톡
@@ -72,6 +74,16 @@ public class WeaponUI : MonoBehaviour
             subMAX = value;
         }
     }
+    public int REMAINSUB
+    {
+        get { return remain_sub; }
+        set
+        {
+            remain_sub = value;
+            subUI.text = remain_sub + " / " + SUBMAX;
+        }
+    }
+   
     public float DELAY //부 무장 재사용시간
     {
         get { return delay; }
