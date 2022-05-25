@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     bool canShoot; //발사 가능?
     int leftBullet; //현재 잔탄수
-    bool isreload; //재장전 여부
+    public bool isreload; //재장전 여부
 
     #endregion
     #region 주무장 메소드
@@ -48,7 +48,6 @@ public class Gun : MonoBehaviour
 
     public void Reload() //재장전
     {
-
         if (!isreload && leftBullet != maxBullet)
         {
             StartCoroutine(ReloadMove());
@@ -56,7 +55,6 @@ public class Gun : MonoBehaviour
     }
     IEnumerator ReloadMove() //재장전 매커니즘;
     {
-
         isreload = true;
         yield return new WaitForSeconds(reloadTime);
 
@@ -244,7 +242,6 @@ public class Gun : MonoBehaviour
 
             StartCoroutine(nameof(SubCharge)); //조건을 만족 안하면 딜레이 없이 계속 실행
         }
-
     }
 }
 

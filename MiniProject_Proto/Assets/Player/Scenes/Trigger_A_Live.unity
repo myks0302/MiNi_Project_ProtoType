@@ -1247,6 +1247,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680210465}
   m_CullTransparentMesh: 1
+--- !u!1 &781316569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2836004475591695743, guid: f432554f564e69242897607d34218939, type: 3}
+  m_PrefabInstance: {fileID: 789864936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &781316574 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2836004473841745626, guid: f432554f564e69242897607d34218939, type: 3}
+  m_PrefabInstance: {fileID: 789864936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &781316576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781316569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d70d7530612bd4fbbbef253b00cb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &789864936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2388,7 +2410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115591072
 GameObject:
@@ -2501,13 +2523,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131801709}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
   m_LocalPosition: {x: 0, y: 19, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &2131801713
 MonoBehaviour:
@@ -2535,12 +2557,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1775522471}
     - target: {fileID: 2268632884932204801, guid: a57a9977090985549a908321b80e5552, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 781316574}
+    - target: {fileID: 2268632884932204801, guid: a57a9977090985549a908321b80e5552, type: 3}
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2268632884932204801, guid: a57a9977090985549a908321b80e5552, type: 3}
       propertyPath: selectDodge
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268632884932204801, guid: a57a9977090985549a908321b80e5552, type: 3}
+      propertyPath: StartingHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2268632884932204803, guid: a57a9977090985549a908321b80e5552, type: 3}
       propertyPath: m_RootOrder

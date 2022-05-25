@@ -50,10 +50,10 @@ public class Player : LivingEntity
         gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
 
+        Vector3 moveInput = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //입력
+
         stamina = staminaMax; //최대 스테미나 충전
         player = GetComponent<Rigidbody>(); //플레이어 몸 가져오기
-
-        Vector3 moveInput = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));//입력
 
         if (moveSpt == MoveSpt.SPD) //가속기 선택시 기본 이동, 특수 기동 1.2배
         {
@@ -77,6 +77,12 @@ public class Player : LivingEntity
                 break;
         }
 
+        if (GetComponent<LivingEntity>().HEALTH == 0)
+        {
+            animator.SetTrigger("Dead");
+            Destroy(gameObject, 3f);
+        }
+
         if (selectDodge == SelectDodge.SPR) //달리기 선택시
         {
             SteminaUI.instance.STEMINA = stamina;
@@ -89,14 +95,24 @@ public class Player : LivingEntity
         {
             SteminaUI.instance.SteminaGUI.gameObject.SetActive(false);
         }
+
+        stateNow = playerState.IDLE;
+
+        //최대 체력 설정
+        MAXHEALTH = 20;
+        HEALTH = MAXHEALTH;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Vector3 moveInput = new(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 moveVelocity = moveInput.normalized * normalspeed;
         controller.Move(moveVelocity);
+
+        animator.SetFloat("h", Input.GetAxis("Horizontal"));
+        animator.SetFloat("v", Input.GetAxis("Vertical"));
 
         //화면의 마우스 위치 반환
         Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
@@ -124,6 +140,7 @@ public class Player : LivingEntity
         if (Input.GetKeyDown(KeyCode.R))
         {
             gunController.Reload();
+            animator.SetTrigger("Reload");
         }
 
 
@@ -139,21 +156,26 @@ public class Player : LivingEntity
             if ((Input.GetKey(KeyCode.Space) && stamina > 0) && moveInput != Vector3.zero) //
             {
                 sprint(); //달리기 활성화
+                OnRun();
             }
             else if ((Input.GetKey(KeyCode.Space) && stamina < 0) || !Input.GetKey(KeyCode.Space))
             {
-                normalspeed = moveSpeed; //원래 속도대로
+                normalspeed = moveSpeed;//원래 속도대로
+                OnMoveForward();
             }
             if (!Input.GetKey(KeyCode.Space))
             {
                 recoverStamina();
             }
+          
         }
+
 
         if ((selectDodge == SelectDodge.SLD) || (selectDodge == SelectDodge.BLK))
         {
+
             SteminaUI.instance.SteminaGUI.enabled = false;
-            
+
             switch (selectDodge)
             {
                 case SelectDodge.SLD: //슬라이딩 선택시
@@ -174,6 +196,26 @@ public class Player : LivingEntity
         }
 
 
+        switch (stateNow)
+        {
+            case playerState.IDLE:
+                OnIdle();
+                break;
+
+            case playerState.WALK:
+                OnMoveForward();
+                break;
+
+            case playerState.RUN:
+                OnRun();
+                break;
+
+            case playerState.RELOAD:
+                break;
+
+            case playerState.DEAD:              
+                break;
+        }
     }
     #region 순간이동
 
@@ -258,4 +300,42 @@ public class Player : LivingEntity
     }
     #endregion
 
+
+    #region 이벤트 연동
+    enum playerState
+    {
+        IDLE,
+        WALK,
+        RUN,
+        RELOAD,
+        DEAD
+    }
+
+    playerState stateNow;
+
+    public Animator animator;
+
+    public void OnIdle() //플레이어 움직이지 않을때
+    {
+
+    }
+
+    public void OnMoveForward() //플레이어
+    {
+    }
+
+    public void OnRun() //달릴 때
+    {
+    }
+
+    public void OnReload() //무기 재 장전시
+    {
+       
+    }
+
+    public void onDead() 
+    {
+
+    }
+    #endregion
 }

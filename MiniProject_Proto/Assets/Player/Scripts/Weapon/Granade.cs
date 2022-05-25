@@ -36,6 +36,7 @@ public class Granade : MonoBehaviour
     }
     private void Start()
     {
+        this.GetComponent<Rigidbody>().AddTorque(Vector3.forward, ForceMode.Impulse);
         Invoke("explode", delay);
     }
 

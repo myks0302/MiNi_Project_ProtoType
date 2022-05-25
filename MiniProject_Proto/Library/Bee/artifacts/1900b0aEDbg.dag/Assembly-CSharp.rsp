@@ -397,6 +397,7 @@
 "Assets/Player/Scripts/etc/LivingEntity.cs"
 "Assets/Player/Scripts/etc/PlayerCamera.cs"
 "Assets/Player/Scripts/Player/Player.cs"
+"Assets/Player/Scripts/Player/PlayerAnimation.cs"
 "Assets/Player/Scripts/Player/PlayerController.cs"
 "Assets/Player/Scripts/UI/CoolDownUI.cs"
 "Assets/Player/Scripts/UI/GameManager.cs"

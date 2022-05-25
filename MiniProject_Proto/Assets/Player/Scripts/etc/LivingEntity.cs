@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LivingEntity : MonoBehaviour, IDamageable
 {
-    public float StartingHealth; //시작 체력
+    protected float StartingHealth; //시작 체력(최대 체력)
 
-    protected float health; //현재 체력
+    protected float health; //현재 체력   
 
     public float HEALTH
     {
@@ -16,14 +16,23 @@ public class LivingEntity : MonoBehaviour, IDamageable
             health = value;
         }
     } //체력 변형
-   
-    
+
+    public float MAXHEALTH
+    {
+        get { return StartingHealth; }
+
+        set
+        {
+            StartingHealth = value;
+        }
+    } //최대 체력 설정
+
     protected bool dead; //사망 여부
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        HEALTH = StartingHealth;
+        HEALTH = MAXHEALTH;
     }
 
     public void TakeHit(float damage, RaycastHit hit) 
@@ -49,8 +58,9 @@ public class LivingEntity : MonoBehaviour, IDamageable
     protected void Dead() 
     {
         dead = true;
-        GameObject.Destroy(gameObject);
+        GameObject.Destroy(gameObject, 3f);
     }
+
 
     // Update is called once per frame
     void Update()
